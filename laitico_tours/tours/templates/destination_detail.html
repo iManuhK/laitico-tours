@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="destination-container">
+    <h2>{{ destination.name }}</h2>
+    <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+    <p>{{ destination.description|safe }}</p>
+    <p><strong>Price:</strong> ${{ destination.price }}</p>
+    <a href="{% url 'book_tour' destination.slug %}" class="book-now-btn">Book Now</a>
+</div>
+{% endblock %}

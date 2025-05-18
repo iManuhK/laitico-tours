@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="booking-container">
+    <h2>Book a Trip to {{ destination.name}}</h2>
+    
+    {% if success %}
+        <p class="notification success">Your booking was successful! We will contact you soon.</p>
+    {% endif %}
+    
+    <form method="POST" class="booking-form">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn-submit" {% if success %}disabled{% endif %}>Book Now</button>
+    </form>
+</div>
+
+<style>
+    .success {
+        color: green;
+        font-weight: bold;
+    }
+    
+    .disabled-field {
+        background-color: #f5f5f5;
+        cursor: not-allowed;
+    }
+</style>
+
+{% endblock %}

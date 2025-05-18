@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="destination-list-combined">
+    <h2>Destinations</h2>
+
+    <div class="search-filter-container">
+        <input type="text" id="search-input" placeholder="Search destinations..." onkeyup="filterDestinations()">
+        <select id="price-filter" onchange="filterDestinations()">
+            <option value="">All Prices</option>
+            <option value="low">Below $500</option>
+            <option value="medium">$500 - $1000</option>
+            <option value="high">Above $1000</option>
+        </select>
+    </div>
+
+    {% if destinations %}
+        <div class="destination-list">
+            {% for destination in destinations %}
+                <div class="destination">
+                    <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+                    <h3>{{ destination.name }}</h3>
+                    <p>{{ destination.description|truncatewords:20|safe }}<span><a href="{% url 'destination_detail' destination.slug %}">more details</a></span></p>
+                    <p>Price: ${{ destination.price }}</p>
+                    <a href="{% url 'book_tour' destination.slug %}" class="book-now-btn">Book Now</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No destinations available.</p>
+    {% endif %}
+</div>
+
+<script src="{% static 'js/searchFilter.js' %}"></script>
+
+{% endblock %}

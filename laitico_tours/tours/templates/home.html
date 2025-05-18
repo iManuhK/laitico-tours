@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Discover the World with Us</h1>
+        <p>Explore breathtaking destinations, tailored tours, and unforgettable experiences.</p>
+        <a href="/destinations/" class="cta-button">Explore Destinations</a>
+    </div>
+</section>
+
+<!-- Featured Destinations Section -->
+<section class="featured-destinations">
+    <h2>Popular Destinations</h2>
+    <div class="destination-grid">
+        {% for destination in destinations %}
+            {% if destination.is_popular %}
+            <div class="destination-grid-item">
+                <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+                <h3>{{ destination.name }}</h3>
+                <p>{{ destination.description|truncatewords:20|safe}}</p>
+                <a href="/destinations/{{ destination.slug }}/" class="learn-more-btn">Learn More</a>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+<section class="faqs">
+    <h2>Safari and Travel Destinations FAQs</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>What are some of the best safari destinations in East Africa?</span>
+        </div>
+        <div class="faq-answer">
+            <p>East Africa is home to some of the most renowned safari destinations in the world. Among them are Kenya's Maasai Mara, Tanzania's Serengeti National Park, Uganda's Bwindi Impenetrable Forest, and Rwanda's Volcanoes National Park. Each location boasts its own unique wildlife and landscapes, making it a must-visit destination for safari enthusiasts.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>What is the best time to visit East Africa?</span>
+        </div>
+        <div class="faq-answer">
+            <p>The best time to visit East Africa depends on the destination and the activities you want to participate in. Generally, the dry season, which falls between June and October, is the best time for wildlife viewing. However, some destinations have different peak seasons. For example, the best time to see the wildebeest migration in the Maasai Mara is between July and September. For beach holidays, the best time to visit is between December and February when the weather is warm and dry.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>Which countries in East Africa are popular for safaris?</span>
+        </div>
+        <div class="faq-answer">
+            <p>East Africa is renowned for its incredible safari destinations. The most popular countries for safaris in this region are Kenya, Tanzania, and Uganda. These countries offer diverse landscapes, abundant wildlife, and well-established safari infrastructure.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>Which are the best places to visit in Kenya?</span>
+        </div>
+        <div class="faq-answer">
+            <p> 
+                Kenya has many incredible places to visit, but some of the best include:
+                <ul>
+                    <li>Maasai Mara National Reserve - famous for its wildebeest migration, the Maasai Mara is a must-visit for any safari enthusiast.</li>
+                    <li>Mount Kenya - the second-highest peak in Africa offers incredible hiking and trekking opportunities.</li>
+                    <li>Lake Nakuru National Park - a birdwatcher's paradise, the park is home to thousands of flamingos and other bird species.</li>
+                    <li>Lamu Island - a UNESCO World Heritage Site known for its unique Swahili architecture and stunning beaches.</li>
+                    <li>Amboseli National Park - located at the foot of Mount Kilimanjaro, the park offers breathtaking views of the mountain and incredible wildlife sightings.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>Can I adjust my safari itinerary?</span>
+        </div>
+        <div class="faq-answer">
+            <p>Yes. We allow our clients the flexibility to adjust their itineraries and also offer advisory on the best optimal itinerary options in order to fully enjoy the safari.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            <span class="toggle-icon">+</span>
+            <span>Shall we have a dedicated tour guide throughout our safari?</span>
+        </div>
+        <div class="faq-answer">
+            <p>Laitico Tours and Travels has a dedicated team of tour guides with a vast experience of the tour destinations and with a wide understanding of various foreign languages. We always assign a dedicated tour guide for each safari.</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"This was the most amazing experience of my life! The Safari Tour was beyond expectations. Highly recommend!"</p>
+            <p class="testimonial-name">John Doe</p>
+            <p class="testimonial-location">Malawi</p>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"The Giraffe Center was so magical! I had the best time feeding the giraffes and learning about wildlife conservation."</p>
+            <p class="testimonial-name">Jane Smith</p>
+            <p class="testimonial-location">Nairobi, Kenya</p>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"We had an unforgettable time at Maasai Mara! The guide was amazing, and the wildlife was breathtaking."</p>
+            <p class="testimonial-name">Michael Johnson</p>
+            <p class="testimonial-location">Nigeria</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

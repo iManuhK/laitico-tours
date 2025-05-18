@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="tailored-packages-container">
+    <h1>Tailored Adventure Packages – Your Journey, Your Way!</h1>
+    
+    <p>Are you ready to break free from the ordinary and dive into an adventure of a lifetime? Our <strong>Tailored Adventure Packages</strong> are designed for thrill-seekers, explorers, and nature lovers who crave something beyond the usual tourist trails.</p>
+
+    <h2>Why Choose Our Adventure Packages?</h2>
+    <ul>
+        <li>🏔 <strong>Off-the-Beaten-Path Destinations</strong> – Explore untouched landscapes, hidden waterfalls, and remote trails only a few have dared to venture.</li>
+        <li>🚀 <strong>Custom Thrill Levels</strong> – Whether you want an extreme adrenaline rush or a balanced mix of adventure and relaxation, we’ll design the perfect itinerary for you.</li>
+        <li>🌍 <strong>Unique Experiences</strong> – From hot air balloon safaris and deep-sea diving to trekking with Maasai warriors, our adventures go beyond the ordinary.</li>
+        <li>🔥 <strong>Survival & Outdoor Challenges</strong> – Test your limits with survival training, jungle camping, rock climbing, or white-water rafting.</li>
+        <li>🧭 <strong>Private & Small-Group Expeditions</strong> – Travel solo, with friends, or in a small group for an exclusive and personalized experience.</li>
+    </ul>
+
+    <h2>Create Your Own Adventure!</h2>
+    <p>Tell us what excites you, and we’ll craft a fully customized <strong>action-packed</strong> adventure just for you. Whether it's a daring mountain trek, a desert safari under the stars, or a multi-day jungle expedition, we’ll handle the details—you just bring your adventurous spirit!</p>
+
+    <div class="cta-section">
+        <p>📩 <strong>Contact us now and let’s start planning your next great escape!</strong></p>
+    </div>
+    <div class="tailored-package-input">
+        <h3>Plan My Adventure</h3>
+        <form action="POST" class="tailored-package-form">
+            {% csrf_token %}
+        
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn-submit" {% if success %}disabled{% endif %}>Book Now</button>
+      
+        </form>
+    </div>
+</div>
+
+{% endblock %}

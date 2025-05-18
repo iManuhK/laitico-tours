@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laitico Tours and Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="quick-access-section">
+        <div class="header-top">
+            <div class="header-quick-contacts">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:info@laiticotravels.co.ke">info@laiticotravels.co.ke</a>
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+2547XXXXXX">+2547XXXXXX</a>
+            </div>
+            <div class="quick-call-to-action">
+                <a href="/contact-us/">Help me plan</a>
+            </div>
+            <div class="header-socials">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>    
+        </div>    
+    </section>
+    <header>
+        <h1>Welcome to Laitico Tours and Travel</h1>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'images/logo.png' %}" alt="Laitico Tours & Travel Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="/destinations/">Safari Destinations</a></li>
+                    <li><a href="{% url 'packages' %}">Tailored Packages</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="https://wa.me/2547XXXXXX" target="_blank" class="whatsapp-float">
+                <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+            </a>            
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+                <a href="/contact-us/">Contact</a>
+            </nav>
+            <p>Follow us:</p>
+            <a href="https://facebook.com">Facebook</a> | <a href="https://twitter.com">X</a> | <a href="https://instagram.com">Instagram</a>
+            <p>© 2025 Laitico Tours & Travel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/faq-toggle.js' %}"></script>
+    <script src="{% static 'js/searchFilter.js' %}"></script>
+</body>
+</html>
